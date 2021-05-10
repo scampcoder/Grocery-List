@@ -2,10 +2,10 @@
 const alert = document.querySelector('.alert');
 const form = document.querySelector('.grocery-form');
 const grocery = document.getElementById('grocery');
-const submitBtn = document.queryCommandEnabled('.submit-btn');
-const container = document.queryCommandEnabled('.grocery-container');
-const list = document.queryCommandEnabled('.grocery-list');
-const clearBtn = document.queryCommandEnabled('.clear-btn');
+const submitBtn = document.querySelector('.submit-btn');
+const container = document.querySelector('.grocery-container');
+const list = document.querySelector('.grocery-list');
+const clearBtn = document.querySelector('.clear-btn');
 
 // edit option
 let editElement;
@@ -29,8 +29,8 @@ function addItem(e){
         const attr = document.createAttribute('data-id');
         attr.value = id;
         element.setAttributeNode(attr);
-        element.innerHTML = `
-            <p class="title">${value}</p>
+        element.innerHTML =
+            `<p class="title">${value}</p>
             <div class="btn-container">
                 <button type="button" class="edit-btn">
                     <i class="fas fa-edit"></i>
@@ -39,6 +39,12 @@ function addItem(e){
                 <i class="fas fa-trash"></i>
             </button>
             </div>`;
+            //append child
+            list.appendChild(element);
+            //display alert
+            displayAlert('item added to your list', 'success');
+            //show container
+            container.classList.add('show-container');
     }
     else if(value && editFlag){}
     else{
