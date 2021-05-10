@@ -23,7 +23,15 @@ function addItem(e){
     const id = new Date().getTime().toString();
     if(value && !editFlag){}
     else if(value && editFlag){}
-    else{}
+    else{
+        displayAlert('please enter value', 'danger')
+    }
+}
+
+//display alert
+function displayAlert(text, action){
+    alert.textContent = 'empty value';
+    alert.classList.add(`alert-${action}`);
 }
 // ****** LOCAL STORAGE **********
 
