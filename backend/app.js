@@ -21,8 +21,8 @@ function addItem(e){
     e.preventDefault();
     const value = grocey.value;
     const id = new Date().getTime().toString();
-    if(value !== '' && editFlag === false){}
-    else if(value !== '' && editFlag === true){}
+    if(!value && editFlag === false){}
+    else if(!value && editFlag === true){}
     else{}
 }
 // ****** LOCAL STORAGE **********
