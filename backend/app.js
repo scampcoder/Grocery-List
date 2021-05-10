@@ -8,6 +8,9 @@ const list = document.queryCommandEnabled('.grocery-list');
 const clearBtn = document.queryCommandEnabled('.clear-btn');
 
 // edit option
+let editElement;
+let editFlag = false;
+let editID = '';
 
 // ****** EVENT LISTENERS **********
 
