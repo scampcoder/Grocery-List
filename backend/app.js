@@ -19,7 +19,7 @@ form.addEventListener('submit', addItem)
 function addItem(e){
     //prevent default of form sumbission
     e.preventDefault();
-    const value = grocey.value;
+    const value = grocery.value;
     const id = new Date().getTime().toString();
     if(value && !editFlag){}
     else if(value && editFlag){}
@@ -30,9 +30,17 @@ function addItem(e){
 
 //display alert
 function displayAlert(text, action){
-    alert.textContent = 'empty value';
+    alert.textContent = text;
     alert.classList.add(`alert-${action}`);
+
+    //remove alert
+    setTimeout(function(){
+        alert.textContent = '';
+        alert.classList.remove(`alert-${action}`);
+    }, 1000);
 }
+
+
 // ****** LOCAL STORAGE **********
 
 // ****** SETUP ITEMS **********
