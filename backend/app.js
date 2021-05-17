@@ -62,7 +62,7 @@ function addItem(e){
     else if(value && editFlag){
         editElement.innerHTML = value;
         displayAlert('item changed', 'success');
-        //editLocalStorage(editID, value);
+        editLocalStorage(editID, value);
         setBackToDefault();
     }
     else{
@@ -152,7 +152,16 @@ function removeFromLocalStorage(id){
     localStorage.setItem('list', JSON.stringify(items));
 }
 
-function editLocalStorage(id, value){}
+function editLocalStorage(id, value){
+    let items = getLocalStorage();
+    items = items.map(function(item){
+        if(item.id === id){
+            item.value = value;
+        }
+        return item;
+    })
+    localStorage.setItem('list', JSON.stringify(items));
+}
 function getLocalStorage(){
     //ternary operatory (if item exists, get item. if no item, let items equal '[]')
     return localStorage.getItem('list')?JSON.parse(localStorage.getItem('list')):[];
