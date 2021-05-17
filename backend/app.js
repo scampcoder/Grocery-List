@@ -136,8 +136,7 @@ function setBackToDefault(){
 function addToLocalStorage(id, value){
     //ES6 shorthand for {id:id, value:value} because value name and property name are the same
     const grocery = {id, value};
-    //ternary operatory (if item exists, get item. if no item, let items equal '[]')
-    let items = localStorage.getItem('list')?JSON.parse(localStorage.getItem('list')):[];
+    let items = getLocalStorage();
     //console.log(items)
     items.push(grocery);
     localStorage.setItem('list', JSON.stringify(items));
@@ -148,6 +147,10 @@ function removeFromLocalStorage(id){
 }
 
 function editLocalStorage(id, value){}
+function getLocalStorage(){
+    //ternary operatory (if item exists, get item. if no item, let items equal '[]')
+    return localStorage.getItem('list')?JSON.parse(localStorage.getItem('list')):[];
+}
     //localStorage API
     //setItem
     //getItem
