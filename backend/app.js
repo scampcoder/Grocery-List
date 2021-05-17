@@ -99,6 +99,7 @@ function editItem(){
 function deleteItem(e){
     //grab parent's parent/grocery item
     const element = e.currentTarget.parentElement.parentElement;
+    const id = element.dataset.id;
     list.removeChild(element);
     if(list.children.length === 0){
         container.classList.remove('show-container');
@@ -120,5 +121,9 @@ function setBackToDefault(){
 // ****** LOCAL STORAGE **********
 function addToLocalStorage(id, value){
     console.log('added to local storage');
+}
+
+function removeFromLocalStorage(id){
+
 }
 // ****** SETUP ITEMS **********
